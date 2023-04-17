@@ -5,8 +5,8 @@ export const printError = (error) => {
 	console.log(chalk.bgRed(' ERROR ') + ' ' + error);
 };
 
-export const printSuccess = () => {
-	console.log(chalk.bgGreen(' SUCCESS ') + ' ' + error);
+export const printSuccess = (success) => {
+	console.log(chalk.bgGreen(' SUCCESS ') + ' ' + success);
 };
 
 export const printHelp = () => {

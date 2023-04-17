@@ -5,8 +5,12 @@ import { printHelp, printSuccess, printError } from './services/log.service.js';
 import { saveKeyValue } from './services/storage.service.js';
 
 const saveToken = async (token) => {
+	if(!token.length) {
+		printError('Doesn`t exist token');
+		return;
+	}
 	try{
-		await saveKeyValue('token', args.t);
+		await saveKeyValue('token', token);
 		printSuccess('Token saved');
 	} catch(e) {
 		printError(e.messages);

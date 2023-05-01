@@ -2,8 +2,6 @@ import https from 'https';
 import { getKeyValue, TOKEN_DICTIONARY } from './storage.service.js';
 import axios from 'axios';
 
-const API = 'bc52a54cec550dace75647363e61b372';
-
 export const getWeather = async (city) => {
 	const token = await getKeyValue(TOKEN_DICTIONARY.token);
 	if(!token) {
@@ -18,5 +16,6 @@ export const getWeather = async (city) => {
 			units: 'metric'
 		}
 	});
+
 	return data;
 };

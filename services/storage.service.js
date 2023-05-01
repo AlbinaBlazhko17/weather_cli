@@ -4,15 +4,21 @@ import { promises } from 'fs';
 
 const filePath = join(homedir(), 'weather_cli.json');
 
+export const TOKEN_DICTIONARY = {
+	token: 'token',
+	city: 'city'
+}
+
 export const saveKeyValue = async (key, value) => {
-	let data = readDataFile();
+	let data = await readDataFile();
 	data[key] = value;
 	await promises.writeFile(filePath, JSON.stringify(data));
 }
 
 export const getKeyValue = async (key) => {
-	let data = readDataFile();
+	let data = await readDataFile();
 	if(data) {
+		
 		return data[key];
 	}
 	return undefined;
